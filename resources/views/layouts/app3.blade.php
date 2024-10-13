@@ -31,6 +31,24 @@
             position: relative; 
         }
 
+        .btn-container {
+            margin-bottom: 20px;
+        }
+
+        .btn-success {
+            background-color: #8b5cf6;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-success:hover {
+            background-color: #7c3aed;
+        }
+
         .logo-container {
             position: absolute;
             top: -70px; 

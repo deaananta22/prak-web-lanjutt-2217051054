@@ -22,6 +22,9 @@
                 <div class="pesan-error">{{ $message }}</div>
             @enderror
 
+             <label for="foto">Foto: </label>
+            <input type="file" id="foto" name="foto">
+
             <label for="kelas_id">Kelas:</label>
             <select name="kelas_id" id="kelas_id" class="@error('kelas_id') input-invalid @enderror">
                 <option value="">Pilih Kelas</option>
