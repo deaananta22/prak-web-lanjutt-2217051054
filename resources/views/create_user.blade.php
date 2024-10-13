@@ -28,11 +28,11 @@
             z-index: 1;
         }
         .logo {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             position: absolute;
-            top: -20px;
-            left: -20px;
+            top: -55px;
+            left: -40px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -40,7 +40,6 @@
             color: white;
             font-size: 24px;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
@@ -92,22 +91,61 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, select {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        .input-invalid {
+            border: 1px solid red;
+        }
+        .pesan-error {
+            color: red;
+            font-size: 0.8em;
+            margin-top: -5px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="">
+        <div>
             <img src="/asset/images/kiyowo.png"  class="logo">
         </div>
         <form action="{{ route('user.store') }}" method="post">
             @csrf
             <h1>Create User</h1>
+           
             <label for="nama">Nama:</label>
-            <input type="text" id="nama" name="nama" required>
+            <input type="text" id="nama" name="nama" value="{{ old('nama') }}" class="@error('nama') input-invalid @enderror">
+            @error('nama')
+                <div class="pesan-error">{{ $message }}</div>
+            @enderror
+
+
             <label for="npm">NPM:</label>
-            <input type="text" id="npm" name="npm" required>
-            <label for="kelas">Kelas:</label>
-            <input type="text" id="kelas" name="kelas" required>
+            <input type="text" id="npm" name="npm" value="{{ old('npm') }}" class="@error('npm') input-invalid @enderror">
+            @error('npm')
+                <div class="pesan-error">{{ $message }}</div>
+            @enderror
+
+            <label for="kelas_id">Kelas:</label>
+            <select name="kelas_id" id="kelas_id" class="@error('kelas_id') input-invalid @enderror">
+                <option value="">Pilih Kelas</option>
+                @foreach ($kelas as $kelasItem)
+                    <option value="{{ $kelasItem->id }}" {{ old('kelas_id') == $kelasItem->id ? 'selected' : '' }}>
+                        {{ $kelasItem->nama_kelas }}
+                    </option>
+                @endforeach
+            </select>
+            @error('kelas_id')
+                <div class="pesan-error">{{ $message }}</div>
+            @enderror
+            
             <input type="submit" value="Submit">
         </form>
     </div>
