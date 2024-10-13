@@ -26,7 +26,21 @@
                         <td><?= $user['nama'] ?></td>
                         <td><?= $user['npm'] ?></td>
                         <td><?= $user['nama_kelas'] ?></td>
-                        <td><a href="{{ route('user.show', $user->id) }}" class="btn btn-warning mb-3">Detail</a></td>
+                        <td><img src="{{ Storage::url($user->foto) }}" class="profile-img"></td>
+                       <td>     <!-- View -->
+                        <a href="{{ route('user.show', $user['id']) }}" class="view">View</a>
+
+                        <!-- Edit -->
+                        <a href="{{ route('user.edit', $user['id']) }}" class="edit">Edit</a>
+
+                        <!-- Delete -->
+                        <form action="{{ route('user.destroy', $user['id']) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete"
+                                onclick="return confirm('Apakah Anda yakin ingin menghapus user ini?')">Delete</button>
+                        </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

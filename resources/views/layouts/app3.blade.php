@@ -49,6 +49,14 @@
             background-color: #7c3aed;
         }
 
+        .profile-img {
+            width: 200px;
+            height: 250px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+
         .logo-container {
             position: absolute;
             top: -70px; 
@@ -77,6 +85,28 @@
             overflow: hidden;
         }
 
+        .view, .edit, .delete {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .view {
+            background-color: #fd64b8;
+        }
+        
+        .edit {
+            background-color: #8af183;
+        }
+
+        .delete {
+            background-color: #fd6464;
+        }
         .table th,
         .table td {
             padding: 12px 15px;

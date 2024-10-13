@@ -79,6 +79,18 @@
             font-size: 1.2em;
         }
 
+        .btn3{
+            background-color: #9f7cf0;
+        text-decoration: none;
+        text-align: center;
+        display: inline-block;
+        width: 95%;
+        padding: 10px;
+        color: white;
+        border-radius: 5px;
+        margin-top: 10px;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }

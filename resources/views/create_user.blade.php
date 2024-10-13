@@ -5,6 +5,7 @@
         <div>
             <img src="/asset/images/kiyowo.png"  class="logo">
         </div>
+        <a href="{{ route('user.list') }}" class="btn btn-success">List User</a>
         <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <h1>Create User</h1>
