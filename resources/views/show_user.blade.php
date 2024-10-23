@@ -82,6 +82,7 @@
         <div class="info">
             <h1 class="label">{{ $user->nama }}</h1>
             <h1 class="ipk">{{ number_format($user->ipk, 2) }}</h1>
+            {{-- muncul nama dan ipk --}}
         </div>
     </div>
 </body>
