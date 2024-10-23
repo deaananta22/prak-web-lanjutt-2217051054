@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('user', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('npm');
             $table->foreignId('kelas_id')->constrained();
-            $table->string('foto');
+            $table->float('ipk')->nullable();
             $table->timestamps();
         });
     }
@@ -28,4 +27,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('user');
     }
+
 };
