@@ -14,13 +14,21 @@ class UserModel extends Model
 
     protected $fillable = [
         'nama',
-        'npm',
         'kelas_id',
-        'foto',
+        'ipk',
     ];
 
-    public function getUser(){
-     return $this->join('kelas', 'kelas.id', '=', 'user.kelas_id')->select('user.*', 'kelas.nama_kelas as nama_kelas')->get();
+
+    public function getUser($id = null){
+    if ($id === null) {
+        return $this->join('kelas', 'kelas.id', '=', 'user.kelas_id')
+                    ->select('user.*', 'kelas.nama_kelas')
+                    ->get();
+    }
+    return $this->join('kelas', 'kelas.id', '=', 'user.kelas_id')
+                ->select('user.*', 'kelas.nama_kelas')
+                ->where('user.id', $id)
+                ->first(); 
     }
 
     public function kelas()
